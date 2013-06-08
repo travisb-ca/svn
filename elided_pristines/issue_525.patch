@@ -1,0 +1,19 @@
+[[[
+Fix issue #525: Elide pristine based up file size
+
+Patch by: Travis Brown <travisb@travisbrown.ca>
+]]]
+Index: pristines/subversion/libsvn_wc/workqueue.c
+===================================================================
+--- pristines.orig/subversion/libsvn_wc/workqueue.c
++++ pristines/subversion/libsvn_wc/workqueue.c
+@@ -523,6 +523,9 @@ run_file_install(work_item_baton_t *wqb,
+                                                   scratch_pool, scratch_pool));
+     }
+ 
++  /* This is where pristines are read, so elided pristines should return a stream from the RA
++   * to the original file.
++   */
+   SVN_ERR(svn_stream_open_readonly(&src_stream, source_abspath,
+                                    scratch_pool, scratch_pool));
+ 
