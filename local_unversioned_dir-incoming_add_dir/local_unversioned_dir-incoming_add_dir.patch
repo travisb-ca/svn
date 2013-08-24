@@ -1,0 +1,25 @@
+[[[
+If an unversioned directory exists when an versioned directory of the same name
+is incoming, don't create a tree conflict. Instead coopt the existing directory
+and all the unversioned objects within.
+
+* subversion/libsvn_wc/update_editor.c
+  (add_directory): Don't consider a pre-existing, unversioned directory a
+   conflict.
+
+Patch by: Travis Brown <travisb@travisbrown.ca>
+
+]]]
+Index: unversioned_dir/subversion/libsvn_wc/update_editor.c
+===================================================================
+--- unversioned_dir.orig/subversion/libsvn_wc/update_editor.c
++++ unversioned_dir/subversion/libsvn_wc/update_editor.c
+@@ -2250,7 +2250,7 @@ add_directory(const char *path,
+       else
+         db->shadowed = TRUE; /* Only update BASE */
+     }
+-  else if (kind != svn_node_none)
++  else if (kind != svn_node_none && kind != svn_node_dir)
+     {
+       /* There's an unversioned node at this path. */
+       db->obstruction_found = TRUE;
