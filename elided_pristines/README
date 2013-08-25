@@ -1,0 +1,3 @@
+This patch is a work in progress for fixing Issue 525. In it I will,
+eventually, add support to SVN to not store the pristines of files which are of
+a certain minimum size.

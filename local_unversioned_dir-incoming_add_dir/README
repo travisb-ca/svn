@@ -1,0 +1,3 @@
+This is a patch which fixes the annoying behaviour of Subversion where if there exists an unversioned directory and a versioned directory of the same name is incoming you will get a tree conflict instead of SVN using the existing directory and recursively creating the incoming files. Read the original thread which prompted this patch here: http://svn.haxx.se/users/archive-2013-08/0332.shtml
+
+This patch has been rejected.
