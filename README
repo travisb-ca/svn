@@ -1,2 +1,5 @@
 These are various patches against Subversion for various features and fixes.
 Some have been rejected, some are incomplete and some I never bothered attempting to submit. Each patch is described by a separate readme.
+
+*** NOTE ***
+All these patches, unless stated otherwise in their respective directory, are licensed GPLv2. This is not the same license as Subversion and adds additional distribution restrictions not present in the unmodified Subversion source.
